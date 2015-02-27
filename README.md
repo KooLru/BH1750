@@ -15,6 +15,15 @@ To download, click the ZIP button above. Extract the zip file and  rename the un
 
 Place the BH1750 library folder your &lt;arduinosketchfolder&gt;/libraries/ folder. Restart the IDE.
 
+Enhanced by Mark Pruden (February 2015) to add the following Features:
+
+- Support for setting the i2C Address of the Device
+- Supports Changing the Measurement Time for the Device
+- Supports reading the RAW value from the sensor
+- Supports powering down, power up, and reset of the device
+- Also:
+- Renamed configure() to startMeasurement(), more aligned to its function
+- Deprecated readLightLevel() use readLuxLevel() instead.
 
 Example usage:
 ```c
@@ -49,7 +58,7 @@ void setup(){
 
 
 void loop() {
-  uint16_t lux = lightMeter.readLightLevel();
+  uint16_t lux = lightMeter.readLuxLevel();
   Serial.print("Light: ");
   Serial.print(lux);
   Serial.println(" lx");
